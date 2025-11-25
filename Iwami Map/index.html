@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Iwami Area Map</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+
+  <style>
+    #map {
+      height: 100vh; /* full-height map */
+      width: 100vw;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map"></div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // Make a map centered on Tokyo
+    const map = L.map('map').setView([35.105943422091485, 132.45192874794677], 9);
+
+    // Add free OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: "© OpenStreetMap contributors"
+    }).addTo(map);
+
+const mineIcon = L.icon({
+  iconUrl: 'marker.png',  // put your icon file in the same folder as index.html
+  iconSize: [40, 40],   // width, height in pixels
+  iconAnchor: [20, 40], // point of the icon which corresponds to the marker location
+  popupAnchor: [0, -40] // position of the popup relative to the icon
+});
+
+    // Add a marker at Tokyo Station
+    L.marker([35.681236, 139.767125])
+  .addTo(map)
+  .bindPopup(`
+    <h3>Tokyo Station</h3>
+    <img src="tokyo station.webp" width="350"><br>
+    <p>TYK</p>
+<a href="https://my.matterport.com/show/?m=5JKWdRLs41V" target="_blank">
+      Matterportで見る
+</a>
+  `);
+
+    L.marker([35.095322445926676, 132.4445655331873])
+  .addTo(map)
+  .bindPopup(`
+    <h3>大久保間歩</h3>
+    <img src="okubo mabo.png" width="250"><br>
+    <p>石見銀山でも最大の坑道であった大久保間歩の一部を見学できます（2025年7月計測）</p>
+<a href="https://my.matterport.com/show/?m=horoqkThL2i" target="_blank">
+Matterportで見る
+</a>
+  `);
+
+    L.marker([35.105943422091485, 132.45192874794677])
+  .addTo(map)
+  .bindPopup(`
+    <h3>石見銀山世界遺産センター</h3>
+    <img src="iwami whc.jpg" width="200"><br>
+    <p>世界遺産センターの展示室内部を見学できます（2024年12月計測）</p>
+<a href="https://my.matterport.com/show/?m=5JKWdRLs41V" target="_blank">
+      Matterportで見る
+</a>
+  `);
+
+    L.marker([35.0948, 132.4391])
+  .addTo(map)
+  .bindPopup(`
+    <h3>石銀地区</h3>
+    <img src="1762525465.png" width="200"><br>
+    <p>仙ノ山頂上付近に位置する江戸時代の鉱山町「石銀地区」の一部を見学できます</p>
+<a> href="https://my.matterport.com/show/?m=jruDkQ6CTAE" target="_blank">
+      Matterportで見る
+</a>
+  `);
+
+
+  </script>
+</body>
+</html>
